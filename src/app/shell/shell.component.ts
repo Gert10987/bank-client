@@ -15,9 +15,9 @@ export class ShellComponent implements OnInit {
     router.events.subscribe((event: Event) => {
 
       if (event instanceof NavigationEnd) {
-        if (!event.url.includes('login')) {
-          this.router.navigate(['login']);
-        }
+        // if (event.url.includes('registration')) {
+        //   // this.router.navigate(['login']);
+        // }
       }
     });
   }

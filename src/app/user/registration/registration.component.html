@@ -1,3 +1,42 @@
-<p>
-  registration works!
-</p>
+<div class="ui-g" style="text-align:center">
+  <div class="ui-g-12"><h1>Registration.</h1></div>
+  <div class="ui-g-12">
+
+    <form class="registration-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Amount">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <select matNativeControl required>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="PLN">PLN</option>
+        </select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input type="password" matInput placeholder="Password">
+      </mat-form-field>
+    </form>
+    <br>
+    <a mat-raised-button color="accent">Register</a>
+  </div>
+</div>
