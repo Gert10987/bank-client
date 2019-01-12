@@ -18,18 +18,24 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AccountComponent } from './account/account.component';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {IdentityManagerService} from './user/login/service/identity-manager.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
+  {path: 'account', component: AccountComponent},
 ];
 
 @NgModule({
   declarations: [
     ShellComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +47,10 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule
   ],
-  providers: [],
+  providers: [IdentityManagerService],
   bootstrap: [ShellComponent]
 })
 export class AppModule {

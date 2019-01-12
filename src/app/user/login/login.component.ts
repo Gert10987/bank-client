@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginData} from './model/login-data';
 import {LoginService} from './service/login.service';
+import {IdentityManagerService} from './service/identity-manager.service';
+import {Router} from '@angular/router';
+import {User} from './model/user';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   loginData: LoginData;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private identityService: IdentityManagerService,
+              private router: Router, private snackBar: MatSnackBar) {
     this.loginData = new LoginData();
   }
 
@@ -20,16 +25,31 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.login(this.loginData).subscribe(user => {
-      if (user != null) {
-        console.log(user);
+        if (user != null) {
+          this.identityService.isLogged = true;
+          this.identityService.user = user as User;
+          this.router.navigate(['account']);
+        }
+      },
+      error => {
+        this.openSnackBar(error['error']);
+      }
+    );
+  }
+
+  logout(tokenId: string) {
+    this.loginService.logout(tokenId).subscribe(errorMessage => {
+      if (errorMessage == null) {
+        this.identityService.isLogged = false;
+        this.identityService.user = null;
+        this.router.navigate(['login']);
       }
     });
   }
 
-  logout() {
-    this.loginService.logout().subscribe(errorMessage => {
-      if (errorMessage == null) {
-      }
+  private openSnackBar(message: string) {
+    this.snackBar.open(message, null, {
+      duration: 2000,
     });
   }
 }

@@ -1,5 +1,7 @@
-<p *ngIf='isLoggedIn'>
-  shell works!
-</p>
+<mat-toolbar color="primary" *ngIf='isLoggedIn'>
+  <mat-toolbar-row>
+    <span>Custom Toolbar</span>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

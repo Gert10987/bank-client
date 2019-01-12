@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Event, NavigationEnd, Router} from '@angular/router';
+import {IdentityManagerService} from '../user/login/service/identity-manager.service';
+import {isLoop} from 'tslint';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +10,14 @@ import {Event, NavigationEnd, Router} from '@angular/router';
 })
 export class ShellComponent implements OnInit {
 
-  isLoggedIn = false;
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private identityService: IdentityManagerService) {
 
     router.events.subscribe((event: Event) => {
 
       if (event instanceof NavigationEnd) {
-        // if (event.url.includes('registration')) {
-        //   // this.router.navigate(['login']);
-        // }
+        if (!this.identityService.isLogged && event.url.includes('account')) {
+          this.router.navigate(['login']);
+        }
       }
     });
   }
