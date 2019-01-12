@@ -1,30 +1,30 @@
 <div class="ui-g" style="text-align:center">
-  <div class="ui-g-12"><h1>Registration.</h1></div>
+  <div class="ui-g-12"><h1>Registration</h1></div>
   <div class="ui-g-12">
 
-    <form class="registration-form">
+    <form (ngSubmit)="register()" #registerForm="ngForm">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="First Name">
+        <input matInput [(ngModel)]="registerData.name.firstName" name="firstName" placeholder="First Name" required>
       </mat-form-field>
       <br>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Last Name">
+        <input matInput [(ngModel)]="registerData.name.lastName" name="lastName" placeholder="Last Name" required>
       </mat-form-field>
       <br>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email">
+        <input matInput [(ngModel)]="registerData.email.value" name="email" placeholder="Email" required>
       </mat-form-field>
       <br>
 
       <mat-form-field class="example-full-width">
-        <input type="number" matInput placeholder="Amount">
+        <input matInput [(ngModel)]="registerData.money.amount" type="number" name="amount" matInput placeholder="Amount" required>
       </mat-form-field>
       <br>
 
       <mat-form-field>
-        <select matNativeControl required>
+        <select matNativeControl required [(ngModel)]="registerData.money.curreny" name="curreny" placeholder="Currency">
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="PLN">PLN</option>
@@ -33,10 +33,13 @@
       <br>
 
       <mat-form-field class="example-full-width">
-        <input type="password" matInput placeholder="Password">
+        <input type="password" [(ngModel)]="registerData.password.value" name="password" matInput placeholder="Password" required>
       </mat-form-field>
+
+      <br>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!registerForm.form.valid">Register</button>
+      <br>
+      <button mat-button routerLink="/login" color="link">Back to login</button>
     </form>
-    <br>
-    <a mat-raised-button color="accent">Register</a>
   </div>
 </div>
