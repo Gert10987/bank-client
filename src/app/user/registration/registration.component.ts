@@ -13,7 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   registerData: RegistrationData;
 
-  constructor(private registrationService: RegistrationService, private snackBar: MatSnackBar, private router: Router ) {
+  constructor(private registrationService: RegistrationService, private snackBar: MatSnackBar, private router: Router) {
     this.registerData = new RegistrationData();
   }
 
