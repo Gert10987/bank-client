@@ -4,8 +4,7 @@ export class Email implements Deserializable {
 
   value: string;
 
-  constructor(value: string) {
-    this.value = value;
+  constructor() {
   }
 
   deserialize(input: any): this {

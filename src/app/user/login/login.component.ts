@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         if (user != null) {
           this.identityService.isLogged = true;
           this.identityService.user = user as User;
+          this.identityService.jwtToken = user.token;
           this.router.navigate(['account']);
         }
       },

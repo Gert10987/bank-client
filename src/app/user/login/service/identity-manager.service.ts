@@ -8,6 +8,7 @@ export class IdentityManagerService {
 
   isLogged: boolean;
   user: User;
+  jwtToken: string;
 
   constructor() {
     this.isLogged = false;

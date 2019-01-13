@@ -1,10 +1,10 @@
-<div class="ui-g" style="text-align:center">
-  <div class="ui-g-12"><h1>Log in</h1></div>
-  <div class="ui-g-12">
+<div style="text-align:center">
+  <div><h1>Log in</h1></div>
+  <div>
 
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Login/Email" [(ngModel)]="loginData.email.value" name="email">
+        <input matInput placeholder="Email" [(ngModel)]="loginData.email.value" name="email">
       </mat-form-field>
       <br>
 

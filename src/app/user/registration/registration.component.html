@@ -1,6 +1,6 @@
-<div class="ui-g" style="text-align:center">
-  <div class="ui-g-12"><h1>Registration</h1></div>
-  <div class="ui-g-12">
+<div style="text-align:center">
+  <div><h1>Registration</h1></div>
+  <div>
 
     <form (ngSubmit)="register()" #registerForm="ngForm">
       <mat-form-field class="example-full-width">
@@ -24,7 +24,7 @@
       <br>
 
       <mat-form-field>
-        <select matNativeControl required [(ngModel)]="registerData.money.curreny" name="curreny" placeholder="Currency">
+        <select matNativeControl required [(ngModel)]="registerData.money.currency" name="curreny" placeholder="Currency">
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="PLN">PLN</option>

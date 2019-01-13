@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Account} from './model/account';
+import {AccountService} from './service/account.service';
+import {IdentityManagerService} from '../user/login/service/identity-manager.service';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  account: Account;
 
-  ngOnInit() {
+  constructor(private accountService: AccountService, private identityService: IdentityManagerService) {
+    this.account = new Account();
   }
 
+  ngOnInit() {
+    this.accountService.details(this.identityService.user.accountId)
+      .subscribe(accountDetails => this.account = accountDetails);
+  }
 }

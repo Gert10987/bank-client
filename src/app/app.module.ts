@@ -18,10 +18,18 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { AccountComponent } from './account/account.component';
+import {AccountComponent} from './account/account.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {IdentityManagerService} from './user/login/service/identity-manager.service';
+
+import {MatGridListModule} from '@angular/material/grid-list';
+import {PaymentsComponent} from './account/payments/payments.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+
+import {MatListModule} from '@angular/material/list';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -35,7 +43,8 @@ const appRoutes: Routes = [
     ShellComponent,
     LoginComponent,
     RegistrationComponent,
-    AccountComponent
+    AccountComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +57,11 @@ const appRoutes: Routes = [
     MatSelectModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [IdentityManagerService],
   bootstrap: [ShellComponent]
