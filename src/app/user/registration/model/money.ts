@@ -2,7 +2,7 @@ import {Deserializable} from './deserializable.model';
 
 export class Money implements Deserializable {
 
-  amount: string;
+  amount: number;
   currency: string;
 
   deserialize(input: any): this {

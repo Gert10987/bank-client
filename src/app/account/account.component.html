@@ -1,17 +1,25 @@
-<mat-grid-list cols="7" rowHeight="1:2">
-  <mat-grid-tile [colspan]="3">
-    <mat-card class="example-card">
+<!--<div *ngIf="account != null">-->
+<!--<mat-grid-list cols="7" rowHeight="1:2">-->
+<!--<mat-grid-tile [colspan]="3">-->
+<!---->
+<!--</mat-grid-tile>-->
+<!--<mat-grid-tile [colspan]="4" [rowspan]="2"></mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+<div class="section" *ngIf="account != null">
+  <div class="element">
+    <mat-card class="example-card center">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{account.name.firstName}}</mat-card-title>
-        <mat-card-subtitle>{{account.name.lastName}}</mat-card-subtitle>
+        <mat-card-title>{{account.name?.firstName}}</mat-card-title>
+        <mat-card-subtitle>{{account.name?.lastName}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <h2>
           Account number
         </h2>
         <h2>
-          {{account.accountNumber.number}}
+          {{account.accountNumber?.number}}
         </h2>
         <br>
         <h2>
@@ -19,10 +27,14 @@
         </h2>
         <br>
         <h1>
-          Money {{account.totalMoney.amount}} {{account.totalMoney.currency}}
+          Money {{account.totalMoney?.amount}} {{account.totalMoney?.currency}}
         </h1>
       </mat-card-content>
     </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="4"><app-payments [payments]="account.payments"></app-payments></mat-grid-tile>
-</mat-grid-list>
+  </div>
+  <div class="element">
+    <div class="center">
+      <app-payments [payments]="account.payments" (paymentsEvent)="handlePaymentEvent($event)"></app-payments>
+    </div>
+  </div>
+</div>

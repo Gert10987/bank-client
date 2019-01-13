@@ -1,5 +1,14 @@
 <mat-list>
-  <mat-list-item *ngFor="let payment of payments">
-      {{payment.paymentType}} {{payment.money.amount}} {{payment.money.currency}} at {{payment.registeredDateTime}}
+  <h2>
+    Transactions
+  </h2>
+  <mat-list-item *ngFor="let payment of payments" style="display: block">
+    <div class="section">
+      <div class="element">{{payment.type}}</div>
+      <div class="element">{{payment.money.currency}} {{payment.money.amount}}</div>
+      <div class="element">{{payment.registeredDateTime}}</div>
+    </div>
   </mat-list-item>
+  <button mat-stroked-button color="primary" (click)="openChargeAccountDialog()">Charge</button>
+  <button mat-stroked-button color="primary" (click)="openTransferMoneyDialog()">Transfer</button>
 </mat-list>

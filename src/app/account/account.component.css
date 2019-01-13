@@ -3,10 +3,25 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('https://www.lewesac.co.uk/wp-content/uploads/2017/12/default-avatar.jpg');
   background-size: cover;
 }
 
 app-payments {
   width: 100%;
+}
+
+.section {
+  display: flex;
+  width: 100%;
+}
+
+.element {
+  flex:1
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

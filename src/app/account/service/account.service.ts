@@ -17,7 +17,7 @@ export class AccountService {
   }
 
   public details(accountId: string): Observable<Account> {
-    return this.httpClient.get<Account>(this.accountResourceUrl + '/' + accountId, {headers: {'Authorization': 'Bearer ' + this.identityService.user.token}}).pipe(
+    return this.httpClient.get<Account>(this.accountResourceUrl + '/' + accountId, {headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}}).pipe(
       map(account => {
         return account;
       }));
@@ -26,19 +26,19 @@ export class AccountService {
   public charge(accountId: string, money: Money) {
     return this.httpClient.put(this.accountResourceUrl + '/' + accountId + '/charge', money, {
       observe: 'response',
-      headers: {'Authorization': 'Bearer ' + this.identityService.user.token}
+      headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}
     })
       .pipe(
-        map(response => null),
+        map(null),
         catchError(this.handleError())
       );
   }
 
   public transfer(accountId: string, otherAccountNumber: string, money: Money) {
     return this.httpClient.put(this.accountResourceUrl + '/' + accountId + '/transfer/' + otherAccountNumber + '/charge',
-      money, {observe: 'response', headers: {'Authorization': 'Bearer ' + this.identityService.user.token}})
+      money, {observe: 'response', headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}})
       .pipe(
-        map(response => null),
+        map(null),
         catchError(this.handleError())
       );
   }

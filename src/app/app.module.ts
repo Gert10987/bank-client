@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShellComponent} from './shell/shell.component';
@@ -24,12 +24,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {IdentityManagerService} from './user/login/service/identity-manager.service';
 
 import {MatGridListModule} from '@angular/material/grid-list';
-import {PaymentsComponent} from './account/payments/payments.component';
+import {ChargeDialog, PaymentsComponent, TransferDialog} from './account/payments/payments.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -44,12 +49,19 @@ const appRoutes: Routes = [
     LoginComponent,
     RegistrationComponent,
     AccountComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    ChargeDialog,
+    TransferDialog
+  ],
+  entryComponents: [
+    ChargeDialog,
+    TransferDialog
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     MatInputModule,
     MatButtonModule,
@@ -61,7 +73,10 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [IdentityManagerService],
   bootstrap: [ShellComponent]

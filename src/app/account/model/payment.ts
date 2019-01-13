@@ -7,7 +7,7 @@ export class Payment implements Deserializable {
 
   registeredDateTime: string;
 
-  paymentType: string;
+  type: string;
 
   constructor() {
   }
