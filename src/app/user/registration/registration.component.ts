@@ -3,6 +3,7 @@ import {RegistrationData} from './model/registration-data';
 import {RegistrationService} from './service/registration.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -12,6 +13,14 @@ import {Router} from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
   registerData: RegistrationData;
+
+  emailFormControl = new FormControl('', [
+    Validators.email,
+  ]);
+
+  amountOfMoneyControl = new FormControl('', [
+    Validators.pattern('[0-9]{1,5}[.][0-9][0-9]')
+  ]);
 
   constructor(private registrationService: RegistrationService, private snackBar: MatSnackBar, private router: Router) {
     this.registerData = new RegistrationData();
