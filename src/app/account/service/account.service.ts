@@ -35,7 +35,7 @@ export class AccountService {
   }
 
   public transfer(accountId: string, otherAccountNumber: string, money: Money) {
-    return this.httpClient.put(this.accountResourceUrl + '/' + accountId + '/transfer/' + otherAccountNumber + '/charge',
+    return this.httpClient.put(this.accountResourceUrl + '/' + accountId + '/transfer/' + otherAccountNumber,
       money, {observe: 'response', headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}})
       .pipe(
         map(response => null),
