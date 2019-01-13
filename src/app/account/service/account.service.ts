@@ -11,7 +11,7 @@ import {IdentityManagerService} from '../../user/login/service/identity-manager.
 })
 export class AccountService {
 
-  private accountResourceUrl = 'http://localhost:8080/account';
+  private accountResourceUrl = '/account';
 
   constructor(private httpClient: HttpClient, private identityService: IdentityManagerService) {
   }

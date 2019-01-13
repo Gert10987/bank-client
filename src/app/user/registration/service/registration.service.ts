@@ -9,7 +9,7 @@ import {catchError, map} from 'rxjs/operators';
 })
 export class RegistrationService {
 
-  private registrationResourceUrl = 'http://localhost:8080/users';
+  private registrationResourceUrl = '/users';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -20,7 +20,6 @@ export class RegistrationService {
         map(response => null),
         catchError(this.handleError())
       );
-
   }
 
   handleError<T>() {

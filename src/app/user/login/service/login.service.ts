@@ -10,7 +10,7 @@ import {User} from '../model/user';
 })
 export class LoginService {
 
-  private registrationResourceUrl = 'http://localhost:8080/users';
+  private registrationResourceUrl = '/users';
 
   constructor(private httpClient: HttpClient) {
 
