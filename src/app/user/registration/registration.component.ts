@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   ]);
 
   amountOfMoneyControl = new FormControl('', [
-    Validators.pattern('[0-9]{1,5}[.][0-9][0-9]')
+    Validators.pattern('[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?(\\.[0-9][0-9]?)?')
   ]);
 
   constructor(private registrationService: RegistrationService, private snackBar: MatSnackBar, private router: Router) {

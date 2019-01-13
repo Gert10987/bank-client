@@ -29,7 +29,7 @@ export class LoginService {
 
     return this.httpClient.delete(this.registrationResourceUrl + '/logout', {observe: 'response', params: {'uuid': tokenId}})
       .pipe(
-        map(null),
+        map(response => null),
         catchError(this.handleError())
       );
   }

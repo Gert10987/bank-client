@@ -29,7 +29,7 @@ export class AccountService {
       headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}
     })
       .pipe(
-        map(null),
+        map(response => null),
         catchError(this.handleError())
       );
   }
@@ -38,7 +38,7 @@ export class AccountService {
     return this.httpClient.put(this.accountResourceUrl + '/' + accountId + '/transfer/' + otherAccountNumber + '/charge',
       money, {observe: 'response', headers: {'Authorization': 'Bearer ' + this.identityService.jwtToken}})
       .pipe(
-        map(null),
+        map(response => null),
         catchError(this.handleError())
       );
   }

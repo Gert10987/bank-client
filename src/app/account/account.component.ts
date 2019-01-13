@@ -29,8 +29,5 @@ export class AccountComponent implements OnInit {
     newValue.amount = +this.account.totalMoney.amount + +money.amount;
 
     this.account.totalMoney = newValue;
-
-
-    console.log(newValue);
   }
 }

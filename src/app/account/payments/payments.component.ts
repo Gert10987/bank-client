@@ -110,7 +110,7 @@ export class ChargeDialog {
   }
 
   amountOfMoneyControl = new FormControl('', [
-    Validators.pattern('[0-9]{1,5}[.][0-9][0-9]')
+    Validators.pattern('[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?(\\.[0-9][0-9]?)?')
   ]);
 }
 
@@ -125,6 +125,6 @@ export class TransferDialog {
   }
 
   amountOfMoneyControl = new FormControl('', [
-    Validators.pattern('[0-9]{1,5}[.][0-9][0-9]')
+    Validators.pattern('[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?(\\.[0-9][0-9]?)?')
   ]);
 }
