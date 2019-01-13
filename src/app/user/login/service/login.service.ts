@@ -26,12 +26,10 @@ export class LoginService {
   }
 
   logout(tokenId: string) {
-    const params = new HttpParams();
-    params.append('uuid', tokenId);
 
-    return this.httpClient.delete(this.registrationResourceUrl + '/logout', {observe: 'response', params: params})
+    return this.httpClient.delete(this.registrationResourceUrl + '/logout', {observe: 'response', params: {'uuid': tokenId}})
       .pipe(
-        map(response => null),
+        map(null),
         catchError(this.handleError())
       );
   }

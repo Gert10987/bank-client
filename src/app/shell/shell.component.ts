@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Event, NavigationEnd, Router} from '@angular/router';
 import {IdentityManagerService} from '../user/login/service/identity-manager.service';
+import {LoginService} from '../user/login/service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class ShellComponent implements OnInit {
     return this.identityService.isLogged;
   }
 
-  constructor(private router: Router, private identityService: IdentityManagerService) {
+  constructor(private router: Router, private identityService: IdentityManagerService, private loginService: LoginService) {
 
     router.events.subscribe((event: Event) => {
 
@@ -26,5 +27,18 @@ export class ShellComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  logout() {
+
+    this.loginService.logout(this.identityService.user.tokenId).subscribe(errorMessage => {
+        if (errorMessage == null) {
+          this.identityService.isLogged = false;
+          this.identityService.user = null;
+          this.identityService.jwtToken = null;
+          this.router.navigate(['login']);
+        }
+      }
+    );
   }
 }

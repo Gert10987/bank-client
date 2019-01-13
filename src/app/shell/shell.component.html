@@ -1,7 +1,9 @@
 <mat-toolbar color="primary" *ngIf='isLoggedIn'>
   <mat-toolbar-row>
-    <span>My bank</span>
+    <div class="section">
+      <div class="element"><span>My bank</span></div>
+      <div class="element"><button style="float: right; font-family: Arial, Helvetica, sans-serif;" mat-button (click)="logout()" color="link">Logout</button></div>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
-
 <router-outlet></router-outlet>

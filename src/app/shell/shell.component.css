@@ -36,4 +36,12 @@ body, input[text], button {
   height: 200px;
 }
 
+.section {
+  display: flex;
+  width: 100%;
+}
+
+.element {
+  flex:1
+}
 
